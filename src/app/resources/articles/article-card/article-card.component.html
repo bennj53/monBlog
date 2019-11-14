@@ -1,0 +1,29 @@
+<div class="column is-full">
+  <div class="card">
+    <div class="card-image">
+      <figure class="image is-4by3">
+        <img src="../../../../assets/img-article-card.png" alt="Placeholder image">
+      </figure>
+    </div>
+    <div class="card-content">
+      <div class="media">
+        <div class="media-left">
+          <figure class="image is-48x48">
+            <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+          </figure>
+        </div>
+        <div class="media-content">
+          <p class="title is-4">{{ auteur }}</p>
+          <p class="subtitle is-6">{{ titre }}</p>
+        </div>
+      </div>
+
+      <div class="content" style="height:300px; width:350px;">
+        {{ resume }} <a>@bulmaio</a>.
+        <a href="#">#css</a> <a href="#">#responsive</a>
+        <br>
+        <time datetime="1-1-2019" style="position: absolute; bottom: 10px;right: 10px;">{{ date | date : "short" }}</time>
+      </div>
+    </div>
+  </div>
+</div>

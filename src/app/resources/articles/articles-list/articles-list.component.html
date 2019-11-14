@@ -1,0 +1,9 @@
+<div class="container is-fluid">
+    <div class="columns is-multiline">
+  <app-article-card *ngFor= "let articleCard of articleCards"
+                            [auteur]="articleCard.auteur"
+                            [titre]="articleCard.titre"
+                            [date]="articleCard.date"
+                            [resume]="articleCard.resume"></app-article-card>
+</div>
+</div>
