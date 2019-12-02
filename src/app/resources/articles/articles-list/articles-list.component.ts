@@ -1,24 +1,28 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { ArticleService } from '../../../common/services/article.service';
+import { Component, OnInit, Input } from "@angular/core";
+import { ArticleService } from "../../../common/services/article.service";
 
 @Component({
-  selector: 'app-articles-list',
-  templateUrl: './articles-list.component.html',
-  styleUrls: ['./articles-list.component.scss']
+  selector: "app-articles-list",
+  templateUrl: "./articles-list.component.html",
+  styleUrls: ["./articles-list.component.scss"],
 })
 export class ArticlesListComponent implements OnInit {
+  articles;
 
-  @Input() articleCards: any[];
-
-  constructor(private articleService: ArticleService) { }
+  constructor(private articleService: ArticleService) {}
 
   ngOnInit() {
-    this.articleService.getServiceName();
     this.getListArticles();
   }
 
   getListArticles() {
-    this.articleCards = this.articleService.getArticlesCards();
+    this.articleService.getArticlesCards().subscribe(
+      data => {
+        this.articles = data;
+      },
+      err => {
+        console.log(err);
+      }
+    );
   }
-
 }

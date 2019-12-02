@@ -1,19 +1,18 @@
-import { Routes } from '@angular/router';
-import { HomeComponent } from './pages/home/home.component';
-import { ArticlesListComponent } from './resources/articles/articles-list/articles-list.component';
-import { ArticleDetailComponent } from './resources/articles/article-detail/article-detail.component';
+import { Routes } from "@angular/router";
+import { ArticlesListComponent } from "./resources/articles/articles-list/articles-list.component";
+import { ArticleDetailComponent } from "./resources/articles/article-detail/article-detail.component";
 
 export const appRoutes: Routes = [
   {
-    path: '',
-    component: HomeComponent
-  },
-  {
-    path: 'articles',
+    path: "",
     component: ArticlesListComponent
   },
   {
-    path: 'articles/:id',
+    path: "articles",
+    component: ArticlesListComponent
+  },
+  {
+    path: "article/:id",
     component: ArticleDetailComponent
   }
 ];
