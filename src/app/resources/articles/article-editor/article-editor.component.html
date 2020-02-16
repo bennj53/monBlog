@@ -1,0 +1,104 @@
+<br/>
+<form [formGroup]="articleForm" (ngSubmit)="onSubmitForm()" class="formArticleEditor" >
+  <div class="tile is-ancestor">
+    <div class="tile is-parent">
+
+    </div>
+
+    <div class="tile is-vertical is-parent is-8">
+      <article class="tile is-child">
+        <div class="field is-horizontal">
+          <div class="field-label">
+            <label class="label">Titre</label>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <p class="control">
+                <input class="input is-rounded" type="text" placeholder="Rounded input" id="title" formControlName="title">
+              </p>
+            </div>
+          </div>
+        </div>
+      </article>
+      <article class="tile is-child">
+        <div class="field is-horizontal">
+          <div class="field-label">
+            <label class="label">Resume</label>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <p class="control">
+                <input class="input is-rounded" type="text" placeholder="Rounded input" id="resume" formControlName="resume">
+              </p>
+            </div>
+          </div>
+        </div>
+      </article>
+      <article class="tile is-child">
+        <div class="field is-horizontal">
+          <div class="field-label">
+            <label class="label">Mots Clees</label>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <p class="control">
+                <input class="input is-rounded" type="text" placeholder="Rounded input" id="keywords" formControlName="keywords">
+              </p>
+            </div>
+          </div>
+        </div>
+      </article>
+      <article class="tile is-child">
+        <div class="field is-horizontal">
+          <div class="field-label">
+            <label class="label">Article</label>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <div class="control">
+                <textarea class="textarea is-large" placeholder="Large textarea" id="articleContent" formControlName="articleContent"></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+      <article class="tile is-child">
+
+      </article>
+    </div>
+    <div class="tile is-parent">
+
+    </div>
+  </div>
+
+  <div class="tile is-ancestor">
+    <div class="tile is-parent is-5">
+
+    </div>
+    <article class="tile is-child">
+      <div class="field is-horizontal">
+        <div class="buttons">
+          <button class="button is-info" (click)="getArticleDetail()">Rechercher</button>
+          <button class="button is-primary" type="submit" [disabled]="articleForm.invalid">
+            Enregistrer
+          </button>
+          <button class="button is-danger" (click)="goToHome()">Annuler</button>
+        </div>
+      </div>
+    </article>
+    <div class="tile is-parent is-2">
+
+    </div>
+  </div>
+
+  <div class="tile is-ancestor">
+    <div class="tile is-parent">
+
+    </div>
+  </div>
+</form>
+
+
+
+
+

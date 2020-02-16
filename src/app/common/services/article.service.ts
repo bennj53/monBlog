@@ -1,9 +1,15 @@
 import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders} from "@angular/common/http";
 import { Observable } from "rxjs";
 import { ArticleDetailComponent } from "src/app/resources/articles/article-detail/article-detail.component";
 import { environment } from "../../../environments/environment";
 import { map } from "rxjs/operators";
+import { Article } from 'src/app/models/Article.model';
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Access-Control-Allow-Origin': '*',
+  'Content-Type': 'application/json' })
+};
 
 @Injectable({
   providedIn: "root"
@@ -22,7 +28,12 @@ export class ArticleService {
     return this.http.get(urlArticle);
   }
 
-
+  saveArticle(article: Article) {
+    console.log("enter in saveArticle from article service component");
+    return this.http.post(this.host + "articles/add",
+    {titre: "Saved Article", auteur: "bennj54", resume: "resume", contenu: "contenu"},
+    httpOptions);
+  }
   /* this.articleCards = [
       {
         auteur: "Bennj5",

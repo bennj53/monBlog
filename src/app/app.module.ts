@@ -15,6 +15,13 @@ import { FooterComponent } from "./partials/footer/footer.component";
 import { HttpClientModule } from "@angular/common/http";
 import { CategoriesListComponent } from "./resources/categories/categories-list/categories-list.component";
 import { CategoriesDetailComponent } from './resources/categories/categories-detail/categories-detail.component';
+import { ArticleEditorComponent } from './resources/articles/article-editor/article-editor.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { TokenStorageServiceService } from './common/services/token-storage-service.service';
+import { UserService } from './common/services/user.service';
+import { LoginService } from './common/services/login.service';
 
 @NgModule({
   declarations: [
@@ -26,15 +33,20 @@ import { CategoriesDetailComponent } from './resources/categories/categories-det
     ArticleCardComponent,
     FooterComponent,
     CategoriesListComponent,
-    CategoriesDetailComponent
+    CategoriesDetailComponent,
+    ArticleEditorComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterModule.forRoot(appRoutes),
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [ArticleService],
+  providers: [ArticleService, TokenStorageServiceService, UserService, LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
