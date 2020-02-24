@@ -31,7 +31,7 @@ export class ArticleService {
   saveArticle(article: Article) {
     console.log("enter in saveArticle from article service component");
     return this.http.post(this.host + "articles/add",
-    {titre: "Saved Article", auteur: "bennj54", resume: "resume", contenu: "contenu"},
+    {titre: "2 Saved Article", auteur: "2bennj54", resume: "2resume", contenu: "2contenu"},
     httpOptions);
   }
   /* this.articleCards = [

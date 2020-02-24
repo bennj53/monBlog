@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from "../common/services/login.service";
 import { Router } from '@angular/router';
-import { NgModel } from '@angular/forms';
+import { NgModel, NgForm } from '@angular/forms';
+import { User } from '../models/User.model';
 
 @Component({
   selector: 'app-register',
@@ -14,7 +15,6 @@ export class RegisterComponent implements OnInit {
   isSuccessful = false;
   isSignUpFailed = false;
   errorMessage = '';
-  sdfsfd: NgModel;
 
 
   constructor(private router: Router, private loginService: LoginService) { }
@@ -26,8 +26,10 @@ export class RegisterComponent implements OnInit {
     this.router.navigateByUrl("");
   }
 
-  onSubmit() {
-    this.loginService.register(this.form).subscribe(
+  onSubmit(form: NgForm) {
+    const user = new User(form.value["registerIdentifiant"], form.value["registerPassword"]);
+    console.log("identifiant : " + user.identifiant + " ---password : " + user.password);
+    this.loginService.register(user).subscribe(
       data => {
         console.log(data);
         this.isSuccessful = true;

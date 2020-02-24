@@ -22,6 +22,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { TokenStorageServiceService } from './common/services/token-storage-service.service';
 import { UserService } from './common/services/user.service';
 import { LoginService } from './common/services/login.service';
+import { authInterceptorProviders } from './helpers/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,7 @@ import { LoginService } from './common/services/login.service';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [ArticleService, TokenStorageServiceService, UserService, LoginService],
+  providers: [ArticleService, TokenStorageServiceService, UserService, LoginService, authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

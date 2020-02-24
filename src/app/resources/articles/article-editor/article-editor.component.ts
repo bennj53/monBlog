@@ -41,7 +41,9 @@ export class ArticleEditorComponent implements OnInit {
       formValue['keywords'],
       formValue['articleContent']
     );
-    this.articleService.saveArticle(newArticle);
+    console.log( formValue['title'] + " " + formValue['resume']  + " " + formValue['keywords'] + " " + formValue['articleContent']);
+    this.saveArticle();
+    //this.articleService.saveArticle(newArticle);
     this.router.navigateByUrl("");
   }
 
