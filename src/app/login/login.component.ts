@@ -5,6 +5,7 @@ import { TokenStorageServiceService } from "../common/services/token-storage-ser
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../common/services/user.service';
 import { User } from '../models/User.model';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ import { User } from '../models/User.model';
 })
 export class LoginComponent implements OnInit {
   form: any = {};
-  isLoggedIn = false;
+  public isLoggedIn: boolean;
   isLoginFailed = false;
   errorMessage = '';
   roles: string[] = [];
@@ -25,10 +26,11 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
       this.initForm();
- /*   if (this.tokenStorage.getToken()) {
-      this.isLoggedIn = true;
-      this.roles = this.tokenStorage.getUser().roles;
-    }*/
+      if (this.tokenStorage.getToken()) {
+        //this.isLoggedIn = true;
+        this.roles = this.tokenStorage.getUser().roles;
+      }
+      this.loginService.getIsLoggedInfo().subscribe ((value) => { this.isLoggedIn = value; });
   }
 
   initForm() {
@@ -36,6 +38,7 @@ export class LoginComponent implements OnInit {
       identifiant: ['', Validators.required],
       password: ['', Validators.required]
     });
+
   }
 
   goToHome() {
@@ -64,10 +67,12 @@ export class LoginComponent implements OnInit {
         this.tokenStorage.saveUser(newUser);
 
         this.isLoginFailed = false;
-        this.isLoggedIn = true;
+        //this.isLoggedIn = true;
+        this.loginService.setIsLoggedInfo(true);
         this.roles = this.tokenStorage.getUser();
         // this.reloadPage();
         console.log("Roles : " + this.roles);
+        this.goToHome();
       },
       err => {
         console.log("Token nullllllllllllllllllll");

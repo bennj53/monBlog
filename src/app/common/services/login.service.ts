@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders} from "@angular/common/http";
 import { environment } from "../../../environments/environment";
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { User } from '../../models/User.model';
 
 const httpOptions = {
@@ -15,8 +15,19 @@ const httpOptions = {
 export class LoginService {
 
   public host: string = environment.apiLoginBaseUrl;
+  private isLoggedInfo: BehaviorSubject<boolean>;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    this.isLoggedInfo = new BehaviorSubject<boolean>(false);
+  }
+
+  getIsLoggedInfo(): Observable<boolean>{
+    return this.isLoggedInfo.asObservable();
+  }
+
+  setIsLoggedInfo(newValue): void {
+    this.isLoggedInfo.next(newValue);
+  }
 
   /*login(username:string, password:string ) {
     const response =  this.http.post<User>(this.host + "login", {username, password}, httpOptions);

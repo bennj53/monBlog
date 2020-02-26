@@ -48,7 +48,7 @@
           <a class="navbar-item">
             Jobs
           </a>
-          <a class="navbar-item" href="editor">
+          <a *ngIf="roles !== null && roles.includes('ADMIN')" class="navbar-item" href="editor">
             Editeur
           </a>
           <a class="navbar-item">
@@ -64,14 +64,21 @@
 
     <div class="navbar-end">
       <div class="navbar-item">
-        <div class="buttons">
+        <div class="buttons" *ngIf="isLogged === false;else deconnexion">
           <a class="button is-primary" routerLink="register" href="/register">
             <strong>Sign up</strong>
           </a>
           <a class="button is-light" routerLink="login" href="/login">
-            Log in
+            Connexion
           </a>
         </div>
+        <ng-template #deconnexion>
+          <div class="buttons">
+            <a class="button is-danger" id="deconnectButton" (click)="signOut()">
+              Déconnexion
+            </a>
+        </div>
+        </ng-template>
       </div>
     </div>
   </div>
