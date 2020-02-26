@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
         //this.isLoggedIn = true;
         this.roles = this.tokenStorage.getUser().roles;
       }
-      this.loginService.getIsLoggedInfo().subscribe ((value) => { this.isLoggedIn = value; });
+      this.loginService.getIsLogged().subscribe ((value) => { this.isLoggedIn = value; });
   }
 
   initForm() {
@@ -68,7 +68,7 @@ export class LoginComponent implements OnInit {
 
         this.isLoginFailed = false;
         //this.isLoggedIn = true;
-        this.loginService.setIsLoggedInfo(true);
+        this.loginService.setIsLoggedInfo();
         this.roles = this.tokenStorage.getUser();
         // this.reloadPage();
         console.log("Roles : " + this.roles);

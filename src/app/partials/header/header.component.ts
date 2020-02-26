@@ -15,18 +15,17 @@ export class HeaderComponent implements OnInit {
   constructor(private router: Router, private loginService: LoginService, private tokenService: TokenStorageServiceService) { }
 
   ngOnInit() {
-    this.loginService.getIsLoggedInfo().subscribe((value) => {
+    this.loginService.getIsLogged().subscribe((value) => {
       this.isLogged = value;
     });
-    this.getRoles();
+    this.loginService.getRoles().subscribe((rolesTab) => {
+      this.roles = rolesTab;
+    });
   }
 
   signOut() {
     this.tokenService.signOut();
-    this.loginService.setIsLoggedInfo(false);
-  }
-
-  getRoles() {
-    this.roles = this.tokenService.getUser();
+    this.loginService.setIsLoggedInfo();
+    this.router.navigateByUrl("");
   }
 }

@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders} from "@angular/common/http";
 import { environment } from "../../../environments/environment";
 import { Observable, BehaviorSubject } from 'rxjs';
 import { User } from '../../models/User.model';
+import { TokenStorageServiceService } from './token-storage-service.service';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Access-Control-Allow-Origin': '*',
@@ -15,18 +16,32 @@ const httpOptions = {
 export class LoginService {
 
   public host: string = environment.apiLoginBaseUrl;
-  private isLoggedInfo: BehaviorSubject<boolean>;
+  private isLoggedInfo: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  private roles: BehaviorSubject<string []> = new BehaviorSubject<string []>([]);
 
-  constructor(private http: HttpClient) {
-    this.isLoggedInfo = new BehaviorSubject<boolean>(false);
+  constructor(private http: HttpClient, private tokenService: TokenStorageServiceService) {
+    this.setIsLoggedInfo();
   }
 
-  getIsLoggedInfo(): Observable<boolean>{
+  getIsLogged(): Observable<boolean> {
     return this.isLoggedInfo.asObservable();
   }
 
-  setIsLoggedInfo(newValue): void {
-    this.isLoggedInfo.next(newValue);
+  getRoles(): Observable<string[]> {
+    return this.roles.asObservable();
+  }
+
+  //voit si user connecté et recup de ses roles
+  setIsLoggedInfo(): void {
+    if (this.tokenService.getToken() !== null ) {
+      this.isLoggedInfo.next(true);
+      this.roles.next(this.tokenService.getUser());
+      console.log("USER IS LOGGED WITH TOKEN SERVICE : " + this.isLoggedInfo.value);
+    } else {
+      this.isLoggedInfo.next(false);
+      this.roles.next([]);
+      console.log("USER IS LOGGED WITH TOKEN SERVICE : " + this.isLoggedInfo.value);
+    }
   }
 
   /*login(username:string, password:string ) {
