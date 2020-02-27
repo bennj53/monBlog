@@ -1,6 +1,6 @@
 <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <a class="navbar-item" href="https://bulma.io">
+    <a class="navbar-item" href="https://www.linkedin.com/in/benoitjulliot/">
             <img
       src="../../../../assets/images/Logo_GIGI-7.png"
       width="60"
@@ -29,7 +29,7 @@
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start">
       <a class="navbar-item" href=" ">
-        Home
+        Accueil
       </a>
 
       <a class="navbar-item">
@@ -38,12 +38,12 @@
 
       <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link">
-          More
+          Plus
         </a>
 
         <div class="navbar-dropdown">
           <a class="navbar-item">
-            About
+            A propos
           </a>
           <a class="navbar-item">
             Jobs
@@ -56,7 +56,7 @@
           </a>
           <hr class="navbar-divider" />
           <a class="navbar-item">
-            Report an issue
+            Signaler une anomalie
           </a>
         </div>
       </div>
@@ -66,18 +66,17 @@
       <div class="navbar-item">
         <div class="buttons" *ngIf="isLogged === false;else deconnexion">
           <a class="button is-primary" routerLink="register" href="/register">
-            <strong>Sign up</strong>
+            <strong>Inscription</strong>
           </a>
           <a class="button is-light" routerLink="login" href="/login">
             Connexion
           </a>
         </div>
         <ng-template #deconnexion>
-          <div class="buttons">
-            <a class="button is-danger" id="deconnectButton" (click)="signOut()">
-              Déconnexion
-            </a>
-        </div>
+          <span class="tag is-danger is-large">
+            {{idUser}}
+            <button class="delete" id="deconnectButton" (click)="signOut()"></button>
+          </span>
         </ng-template>
       </div>
     </div>

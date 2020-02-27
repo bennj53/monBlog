@@ -18,6 +18,7 @@ export class LoginService {
   public host: string = environment.apiLoginBaseUrl;
   private isLoggedInfo: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   private roles: BehaviorSubject<string []> = new BehaviorSubject<string []>([]);
+  private identifiantUser: BehaviorSubject<string> = new BehaviorSubject<string>("");
 
   constructor(private http: HttpClient, private tokenService: TokenStorageServiceService) {
     this.setIsLoggedInfo();
@@ -31,15 +32,21 @@ export class LoginService {
     return this.roles.asObservable();
   }
 
+  getIdUser(): Observable<string> {
+    return this.identifiantUser.asObservable();
+  }
+
   //voit si user connecté et recup de ses roles
   setIsLoggedInfo(): void {
     if (this.tokenService.getToken() !== null ) {
       this.isLoggedInfo.next(true);
       this.roles.next(this.tokenService.getUser());
+      this.identifiantUser.next(this.tokenService.getUserId());
       console.log("USER IS LOGGED WITH TOKEN SERVICE : " + this.isLoggedInfo.value);
     } else {
       this.isLoggedInfo.next(false);
       this.roles.next([]);
+      this.identifiantUser.next("");
       console.log("USER IS LOGGED WITH TOKEN SERVICE : " + this.isLoggedInfo.value);
     }
   }

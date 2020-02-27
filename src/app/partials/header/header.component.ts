@@ -11,6 +11,7 @@ import { TokenStorageServiceService } from 'src/app/common/services/token-storag
 export class HeaderComponent implements OnInit {
   isLogged: boolean;
   roles: string [] = [];
+  idUser: string;
 
   constructor(private router: Router, private loginService: LoginService, private tokenService: TokenStorageServiceService) { }
 
@@ -20,6 +21,9 @@ export class HeaderComponent implements OnInit {
     });
     this.loginService.getRoles().subscribe((rolesTab) => {
       this.roles = rolesTab;
+    });
+    this.loginService.getIdUser().subscribe(id => {
+      this.idUser = id;
     });
   }
 
