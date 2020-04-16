@@ -1,8 +1,8 @@
 .container{
   margin: 40px 20px 40px 20px;
 
-  @media only screen and (min-width: 600px) {
-    margin-top: 90px;
+  @media only screen and (min-width: 200px) {
+    margin: 20px 0px 50px 10px;
   }
 }
 
@@ -15,29 +15,62 @@
   0% {
     left: 0%;
   }
-  20% {
+  5% {
     left: 0%;
   }
-  25% {
+  10% {
     left: -100%;
+  }
+  15% {
+    left: -100%;
+  }
+  20% {
+    left: -200%;
+  }
+  25% {
+    left: -200%;
+  }
+  30% {
+    left: -300%;
+  }
+  35% {
+    left: -300%;
+  }
+  40% {
+    left: -400%;
   }
   45% {
-    left: -100%;
+    left: -400%;
   }
   50% {
-    left: -200%;
+    left: -500%;
+  }
+  55% {
+    left: -500%;
+  }
+  60% {
+    left: -600%;
+  }
+  65% {
+    left: -600%;
   }
   70% {
-    left: -200%;
+    left: -700%;
   }
   75% {
-    left: -300%;
+    left: -700%;
+  }
+  80% {
+    left: -800%;
+  }
+  85% {
+    left: -800%;
   }
   95% {
-    left: -300%;
+    left: -900%;
   }
   100% {
-    left: -400%;
+    left: -1000%;
   }
 }
 
@@ -52,10 +85,11 @@ div#slider figure img {
 
 div#slider figure {
   position: relative;
-  width: 500%;
+  width: 1000%;
   margin: 0;
   left: 0;
   text-align: left;
   font-size: 0;
-  animation: 30s slidy infinite;
+  animation: 50s slidy infinite;
 }
+

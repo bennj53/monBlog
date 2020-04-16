@@ -21,7 +21,7 @@ export class ArticleService {
   constructor(private http: HttpClient) {}
 
   getArticlesCards() {
-    return this.http.get(this.host + "articles");
+    return this.http.get(this.host + "articles", httpOptions);
   }
 
   getArticleByUrl(urlArticle) {

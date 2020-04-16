@@ -1,5 +1,5 @@
 <div class="column is-full">
-  <div class="card">
+  <div class="flou card">
     <div *ngIf="urlArticle === null;else article_externe" class="card-image">
       <figure class="image is-4by3">
           <img [src]="imgArticle" onerror="this.onerror=null; this.src='../../../../assets/images/img-article-card.png'" alt="Placeholder image" (click)="onGetArticleDetail()">
