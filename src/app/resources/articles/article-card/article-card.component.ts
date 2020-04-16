@@ -71,6 +71,8 @@ export class ArticleCardComponent implements OnInit {
       break;
       case "frandroid.com" : return "#2C3049";
       break;
+      case "macg.co" : return "#FF6627";
+      break;
       default : return "#00C4A7";//#FFFFFF
       break;
     }
@@ -87,6 +89,8 @@ export class ArticleCardComponent implements OnInit {
       case "mac4ever.com" : return "../../../../assets/images/logoMAC4EVER.gif";
       break;
       case "frandroid.com" : return "../../../../assets/images/logoFrandroid.gif";
+      break;
+      case "macg.co" : return "../../../../assets/images/logoMacGeneration.gif";
       break;
       default : return "../../../../assets/images/LogoGigi.png";
       break;
