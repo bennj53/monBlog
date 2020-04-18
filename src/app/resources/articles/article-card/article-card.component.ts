@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { ArticleService } from 'src/app/common/services/article.service';
+import { environment } from "src/environments/environment";
 import { reduce } from 'rxjs/operators';
 
 @Component({
@@ -10,6 +11,7 @@ import { reduce } from 'rxjs/operators';
 })
 export class ArticleCardComponent implements OnInit {
 
+  public host: string = environment.apiBaseUrl;
   @Input() auteur: string;
   @Input() date: string;
   @Input() resume: string;
@@ -52,7 +54,7 @@ export class ArticleCardComponent implements OnInit {
       let urlArticle = this.article.id;
       console.log("TEST : " + urlArticle);
       //this.router.navigateByUrl("/article/"+btoa(urlArticle));
-      this.router.navigateByUrl("/article/"+btoa("http://localhost:8087/articles/"+urlArticle));
+      this.router.navigateByUrl("/article/"+btoa(this.host + "articles/"+urlArticle));
     }else{
       console.log("TEST : " + this.urlArticle);
       this.router.navigateByUrl(btoa(this.urlArticle));
