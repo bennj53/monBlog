@@ -1,0 +1,13 @@
+/* To change font family and font size */
+.e-richtexteditor .e-rte-content .e-content,
+.e-richtexteditor .e-source-content .e-content {
+    font-size: 20px;
+    font-family: Segoe ui;
+}
+
+/* To change font color and content background */
+.e-richtexteditor .e-rte-content,
+.e-richtexteditor .e-source-content {
+    background: seashell;
+    color: blue;
+}

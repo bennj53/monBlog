@@ -4,6 +4,7 @@ import { ArticleDetailComponent } from "./resources/articles/article-detail/arti
 import { ArticleEditorComponent } from "./resources/articles/article-editor/article-editor.component";
 import { LoginComponent } from "./login/login.component";
 import { RegisterComponent } from './register/register.component';
+import { SyncfusionMarkdownEditorComponent } from './resources/syncfusion-markdown-editor/syncfusion-markdown-editor.component';
 
 export const appRoutes: Routes = [
   {

@@ -20,6 +20,7 @@ export class ArticleCardComponent implements OnInit {
   @Input() urlArticle: string;
   motcles: string[];
   @Input() article;
+  @Input() contenu: string;
   auteurColors = [
     {
       'name': 'bennj53',
@@ -52,11 +53,12 @@ export class ArticleCardComponent implements OnInit {
     if(this.urlArticle === null){
       //let urlArticle = this.article._links.article.href;
       let urlArticle = this.article.id;
-      console.log("TEST : " + urlArticle);
+      console.log("url article interne : " + urlArticle);
+      console.log("contenu article interne : " + this.contenu);
       //this.router.navigateByUrl("/article/"+btoa(urlArticle));
       this.router.navigateByUrl("/article/"+btoa(this.host + "articles/"+urlArticle));
     }else{
-      console.log("TEST : " + this.urlArticle);
+      console.log("url article externe : " + this.urlArticle);
       this.router.navigateByUrl(btoa(this.urlArticle));
     }
   }

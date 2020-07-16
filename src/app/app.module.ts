@@ -23,6 +23,9 @@ import { TokenStorageServiceService } from './common/services/token-storage-serv
 import { UserService } from './common/services/user.service';
 import { LoginService } from './common/services/login.service';
 import { authInterceptorProviders } from './helpers/auth.interceptor';
+import { SyncfusionMarkdownEditorComponent } from './resources/syncfusion-markdown-editor/syncfusion-markdown-editor.component';
+import { ToolbarService, LinkService, ImageService, MarkdownEditorService, RichTextEditorAllModule } from '@syncfusion/ej2-angular-richtexteditor';
+import { RichTextEditorModule } from '@syncfusion/ej2-angular-richtexteditor';
 
 @NgModule({
   declarations: [
@@ -37,7 +40,8 @@ import { authInterceptorProviders } from './helpers/auth.interceptor';
     CategoriesDetailComponent,
     ArticleEditorComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    SyncfusionMarkdownEditorComponent
   ],
   imports: [
     BrowserModule,
@@ -45,9 +49,11 @@ import { authInterceptorProviders } from './helpers/auth.interceptor';
     RouterModule.forRoot(appRoutes),
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RichTextEditorAllModule
   ],
-  providers: [ArticleService, TokenStorageServiceService, UserService, LoginService, authInterceptorProviders],
+  providers: [ArticleService, TokenStorageServiceService, UserService, LoginService, authInterceptorProviders,
+    ToolbarService, LinkService, ImageService, MarkdownEditorService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

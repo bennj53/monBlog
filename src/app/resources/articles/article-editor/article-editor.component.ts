@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { ArticleService } from 'src/app/common/services/article.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Article } from 'src/app/models/Article.model';
+import { SyncfusionMarkdownEditorComponent } from 'src/app/resources/syncfusion-markdown-editor/syncfusion-markdown-editor.component';
 
 @Component({
   selector: 'app-article-editor',
@@ -12,6 +13,9 @@ import { Article } from 'src/app/models/Article.model';
 export class ArticleEditorComponent implements OnInit {
   article;
   articleForm: FormGroup;
+  //pr acceder aux proprietes et methodes du composant enfant syncfusionMark....
+  @ViewChild(SyncfusionMarkdownEditorComponent, {static: false}) syncfusionMEditor: SyncfusionMarkdownEditorComponent;
+
 
   constructor(private router: Router, private articleService: ArticleService, private formBuilder: FormBuilder) { }
 
@@ -35,13 +39,18 @@ export class ArticleEditorComponent implements OnInit {
   onSubmitForm(){
     console.log("Enregistrement du nouveau article");
     const formValue = this.articleForm.value;
+    let syncfusionText : string = this.syncfusionMEditor.rteObj.value;
+
+    console.log("Text in syncfusion component : " + syncfusionText);
+
     const newArticle = new Article(
       formValue['title'],
       formValue['resume'],
       formValue['keywords'],
-      formValue['articleContent']
+      syncfusionText
     );
-    console.log( formValue['title'] + " " + formValue['resume']  + " " + formValue['keywords'] + " " + formValue['articleContent']);
+    this.article = newArticle;
+    console.log( formValue['title'] + " " + formValue['resume']  + " " + formValue['keywords'] + " " + syncfusionText);
     this.saveArticle();
     //this.articleService.saveArticle(newArticle);
     this.router.navigateByUrl("");
