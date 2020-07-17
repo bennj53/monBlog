@@ -26,7 +26,6 @@ import { authInterceptorProviders } from './helpers/auth.interceptor';
 import { SyncfusionMarkdownEditorComponent } from './resources/syncfusion-markdown-editor/syncfusion-markdown-editor.component';
 import { ToolbarService, LinkService, ImageService, MarkdownEditorService, RichTextEditorAllModule } from '@syncfusion/ej2-angular-richtexteditor';
 import { RichTextEditorModule } from '@syncfusion/ej2-angular-richtexteditor';
-import { MarkdownModule } from 'ngx-markdown';
 
 @NgModule({
   declarations: [
@@ -51,8 +50,7 @@ import { MarkdownModule } from 'ngx-markdown';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    RichTextEditorAllModule,
-    MarkdownModule.forRoot()
+    RichTextEditorAllModule
   ],
   providers: [ArticleService, TokenStorageServiceService, UserService, LoginService, authInterceptorProviders,
     ToolbarService, LinkService, ImageService, MarkdownEditorService],
