@@ -27,6 +27,7 @@
     "bulma-carousel": "^4.0.4",
     "jquery": "^3.4.1",
     "marked": "^1.1.0",
+    "ngx-markdown": "^10.0.0",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
@@ -50,6 +51,6 @@
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.15.0",
-    "typescript": "~3.5.3"
+    "typescript": "^3.5.3"
   }
 }
