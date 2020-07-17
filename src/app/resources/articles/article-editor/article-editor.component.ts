@@ -14,7 +14,7 @@ export class ArticleEditorComponent implements OnInit {
   article;
   articleForm: FormGroup;
   //pr acceder aux proprietes et methodes du composant enfant syncfusionMark....
-  @ViewChild(SyncfusionMarkdownEditorComponent, {static: false}) syncfusionMEditor: SyncfusionMarkdownEditorComponent;
+  @ViewChild(SyncfusionMarkdownEditorComponent) syncfusionMEditor: SyncfusionMarkdownEditorComponent;
 
 
   constructor(private router: Router, private articleService: ArticleService, private formBuilder: FormBuilder) { }

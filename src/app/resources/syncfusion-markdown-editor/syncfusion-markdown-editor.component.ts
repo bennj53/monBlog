@@ -34,7 +34,7 @@ import * as Marked from 'marked';
 export class SyncfusionMarkdownEditorComponent {
 
 
-  @ViewChild('mdPreview', { static: false })
+  @ViewChild('mdPreview')
   public rteObj: RichTextEditorComponent;
   public textArea: HTMLTextAreaElement;
   public mdsource: HTMLElement;
