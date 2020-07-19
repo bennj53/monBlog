@@ -5,7 +5,7 @@ enableRipple(true);
 /**
  * Rich Text Editor Markdown Preview demo
  */
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, Input } from '@angular/core';
 import { addClass, removeClass, Browser } from '@syncfusion/ej2-base';
 import { RichTextEditorComponent, ToolbarService, LinkService } from '@syncfusion/ej2-angular-richtexteditor';
 import { ImageService, MarkdownEditorService } from '@syncfusion/ej2-angular-richtexteditor';
@@ -18,7 +18,7 @@ import * as Marked from 'marked';
   styleUrls: ['./syncfusion-markdown-editor.component.scss'],
   template: `<ejs-richtexteditor id='mdPreview' #mdPreview [toolbarSettings]='tools'
   [editorMode]='mode' (created)='onCreate()' (actionComplete)="actionComplete($event)">
-  <ng-template #valueTemplate>
+  <!--<ng-template #valueTemplate>
       In Rich Text Editor , you click the toolbar buttons to format the words and the changes are visible immediately.
       Markdown is not like that. When you format the word in Markdown format, you need to
       add Markdown syntax to the word to indicate which words
@@ -27,12 +27,13 @@ import * as Marked from 'marked';
       set as **markdown** and using both *keyboard interaction* and *toolbar action*, you can apply the formatting to text.
       You can add our own custom formation syntax for the Markdown formation, [sample link](https://ej2.syncfusion.com/home/).
       The third-party library <b>Marked</b> is used in this sample to convert markdown into HTML content.
-  </ng-template>
+  </ng-template>-->
 </ejs-richtexteditor>`,
   providers: [ToolbarService, LinkService, ImageService, MarkdownEditorService]
   })
 export class SyncfusionMarkdownEditorComponent {
 
+  @Input() public textToUpdate: string;
 
   @ViewChild('mdPreview')
   public rteObj: RichTextEditorComponent;
@@ -53,8 +54,14 @@ export class SyncfusionMarkdownEditorComponent {
           }, 'FullScreen', '|', 'Undo', 'Redo']
   };
   public mode: string = 'Markdown';
+
+  ngOnInit() {
+    console.log("textToUpdate : " + this.textToUpdate );
+  }
+
   public onCreate(): void {
       let script = document.createElement('script');
+      this.rteObj.value = this.textToUpdate;
       script.src = 'https://cdn.jsdelivr.net/npm/marked/marked.min.js';
       document.head.appendChild(script);
       this.textArea = this.rteObj.contentModule.getEditPanel() as HTMLTextAreaElement;

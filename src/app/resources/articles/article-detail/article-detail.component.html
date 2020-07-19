@@ -77,6 +77,9 @@
           </div>
           <div class="tile is-vertical is-parent">
               <article class="tile is-12 is-child blue post">
+                <button *ngIf="roles !== null && roles.includes('ADMIN')" class="button is-primary" (click)="onGoToArticleEditor()">
+                  Editer
+                </button>
                   <img src="../../../../assets/images/img-article-card.png">
               </article>
               <article class="tile is-child gold post">

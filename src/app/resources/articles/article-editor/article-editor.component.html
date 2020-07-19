@@ -59,7 +59,7 @@
                 <textarea class="textarea is-large" placeholder="Large textarea" id="articleContent" formControlName="articleContent" ></textarea>
               </div>
               <div class="control">
-                <app-syncfusion-markdown-editor #syncfusionTextInput></app-syncfusion-markdown-editor>
+                <app-syncfusion-markdown-editor #syncfusionTextInput [textToUpdate]="articleContent"></app-syncfusion-markdown-editor>
               </div>
             </div>
           </div>

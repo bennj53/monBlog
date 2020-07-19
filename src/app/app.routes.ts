@@ -26,6 +26,11 @@ export const appRoutes: Routes = [
   }
   ,
   {
+    path: "editor/:id",
+    component: ArticleEditorComponent
+  }
+  ,
+  {
     path: "login",
     component: LoginComponent
   }

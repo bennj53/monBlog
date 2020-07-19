@@ -28,6 +28,10 @@ export class ArticleService {
     return this.http.get(urlArticle);
   }
 
+  getArticleById(id) {
+    return this.http.get(this.host + "articles/" + id, httpOptions);
+  }
+
   saveArticle(article: Article) {
     console.log("enter in saveArticle from article service component");
     return this.http.post(this.host + "articles/add",

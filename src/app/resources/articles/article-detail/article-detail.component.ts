@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ArticleService } from 'src/app/common/services/article.service';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { Route } from '@angular/compiler/src/core';
+import { environment } from 'src/environments/environment';
+import { LoginService } from 'src/app/common/services/login.service';
 
 @Component({
   selector: 'app-article-detail',
@@ -10,6 +12,7 @@ import { Route } from '@angular/compiler/src/core';
 })
 export class ArticleDetailComponent implements OnInit {
 
+  public host: string = environment.apiBaseUrl;
   auteur: string;
   titre: string;
   contenu: string;
@@ -18,10 +21,11 @@ export class ArticleDetailComponent implements OnInit {
   motcles: string[];
   article;
   url: string;
+  roles: string [] = [];
 
   constructor(private articleService: ArticleService,
               private activatedRoute: ActivatedRoute,
-              private router: Router) {
+              private router: Router,private loginService: LoginService) {
       router.events.subscribe(event => {
         if (event instanceof NavigationEnd) {
           let param: string = activatedRoute.snapshot.params.urlArticle;
@@ -33,6 +37,10 @@ export class ArticleDetailComponent implements OnInit {
    }
 
   ngOnInit() {
+        //recup roles permissions
+        this.loginService.getRoles().subscribe((rolesTab) => {
+          this.roles = rolesTab;
+        });
   }
 
   getArticle(url) {
@@ -44,4 +52,10 @@ export class ArticleDetailComponent implements OnInit {
     });
   }
 
+  onGoToArticleEditor(){
+    //this.router.navigateByUrl("editor");
+    console.log("id de onGoToArticleEditor : " + this.article.id);
+    //this.router.navigate(['/editor'], { queryParams: { id: this.article.id } });
+    this.router.navigate(['/editor/' + this.article.id]);
+  }
 }
