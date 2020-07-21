@@ -1,9 +1,14 @@
 export class Article {
 
   private auteur: string;
+  private id: string;
 
   constructor( private title: string, private resume: string, private keywords: string, private articleContent: string) {
 
+  }
+
+  public setId(id: string): void{
+    this.id = id;
   }
 
   public getArticleContent(): string {

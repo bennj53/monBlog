@@ -38,6 +38,13 @@ export class ArticleService {
     {titre: article.getTitle(), auteur: article.getAuteur(), resume: article.getResume(), contenu: article.getArticleContent()},
     httpOptions);
   }
+
+  updateArticle(id:string, article: Article) {
+    console.log("enter in saveArticle from article service component");
+    return this.http.put(this.host + "articles/update/" + id,
+      {titre: article.getTitle(), auteur: article.getAuteur(), resume: article.getResume(),
+        contenu: article.getArticleContent()}, httpOptions);
+  }
   /* this.articleCards = [
       {
         auteur: "Bennj5",

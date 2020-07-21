@@ -87,11 +87,31 @@ export class ArticleEditorComponent implements OnInit {
       formValue['keywords'],
       syncfusionText
     );
-    this.article = newArticle;
-    console.log( formValue['title'] + " " + formValue['resume']  + " " + formValue['keywords'] + " " + syncfusionText);
-    this.saveArticle();
+    //creation ou update article
+    if (this.article === null){
+      this.article = newArticle;
+      console.log("call save article");
+      console.log( formValue['title'] + " " + formValue['resume']  + " " + formValue['keywords'] + " " + syncfusionText);
+      this.saveArticle();
+    }else{
+      newArticle.setId(this.article.id);
+      this.article = newArticle;
+      console.log("call update article");
+      this.updateArticle();
+    }
     //this.articleService.saveArticle(newArticle);
     this.router.navigateByUrl("");
+  }
+
+  updateArticle() {
+    this.articleService.updateArticle(this.article.id, this.article).subscribe(
+      data => {
+        this.article = data;
+      },
+      err => {
+        console.log(err);
+      }
+    );
   }
 
   goToHome() {
