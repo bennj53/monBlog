@@ -1,5 +1,5 @@
 <br/>
-<form [formGroup]="articleForm" (ngSubmit)="onSubmitForm()" class="formArticleEditor" >
+<form [formGroup]="articleForm" class="formArticleEditor" >
   <div class="tile is-ancestor">
     <div class="tile is-parent">
 
@@ -81,14 +81,14 @@
     <article class="tile is-child">
       <div class="field is-horizontal">
         <div class="buttons">
-          <button class="button is-info" (click)="getArticleDetail()">Rechercher</button>
+          <button class="button is-info" (click)="deleteArticle()">Supprimer</button>
           <div *ngIf="article === null;else updateButtonBlock">
-            <button class="button is-primary" type="submit" [disabled]="articleForm.invalid">
+            <button class="button is-primary" (click)="createOrUpdateArticle()" [disabled]="articleForm.invalid">
               Créer
             </button>
           </div>
           <ng-template #updateButtonBlock>
-            <button class="button is-primary" type="submit" [disabled]="articleForm.invalid">
+            <button class="button is-primary" (click)="createOrUpdateArticle()" [disabled]="articleForm.invalid">
               Mettre à jour
             </button>
           </ng-template>

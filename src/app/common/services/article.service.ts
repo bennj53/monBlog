@@ -31,6 +31,9 @@ export class ArticleService {
   getArticleById(id) {
     return this.http.get(this.host + "articles/" + id, httpOptions);
   }
+  deleteArticleById(id) {
+    return this.http.delete(this.host + "articles/delete/" + id, httpOptions);
+  }
 
   saveArticle(article: Article) {
     console.log("enter in saveArticle from article service component");

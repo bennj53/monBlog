@@ -4,6 +4,7 @@ import { ArticleService } from 'src/app/common/services/article.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Article } from 'src/app/models/Article.model';
 import { SyncfusionMarkdownEditorComponent } from 'src/app/resources/syncfusion-markdown-editor/syncfusion-markdown-editor.component';
+import { LoginService } from 'src/app/common/services/login.service';
 
 @Component({
   selector: 'app-article-editor',
@@ -14,13 +15,19 @@ export class ArticleEditorComponent implements OnInit {
   article;
   articleForm: FormGroup;
   articleContent: string;
+  auteur: string;
   //pr acceder aux proprietes et methodes du composant enfant syncfusionMark....
   @ViewChild(SyncfusionMarkdownEditorComponent) syncfusionMEditor: SyncfusionMarkdownEditorComponent;
 
 
-  constructor(private router: Router, private articleService: ArticleService, private formBuilder: FormBuilder, private route: ActivatedRoute) { }
+  constructor(private router: Router, private articleService: ArticleService, private formBuilder: FormBuilder, private route: ActivatedRoute, private loginService: LoginService) { }
 
   ngOnInit() {
+    //recupérer le login du user connecter pour l indiquer comme auteur de l article
+    this.loginService.getIdUser().subscribe(login => {
+      this.auteur = login;
+    });
+
     let id = this.route.snapshot.params['id'];
     console.log("id : " + id);
     if (id){
@@ -74,7 +81,7 @@ export class ArticleEditorComponent implements OnInit {
   }
 
 
-  onSubmitForm(){
+  createOrUpdateArticle(){
     console.log("Enregistrement du nouveau article");
     const formValue = this.articleForm.value;
     let syncfusionText : string = this.syncfusionMEditor.rteObj.value;
@@ -87,6 +94,10 @@ export class ArticleEditorComponent implements OnInit {
       formValue['keywords'],
       syncfusionText
     );
+
+    //ajout de l'auteur qui est le user connecté
+    newArticle.setAuteur(this.auteur);
+
     //creation ou update article
     if (this.article === null){
       this.article = newArticle;
@@ -112,6 +123,19 @@ export class ArticleEditorComponent implements OnInit {
         console.log(err);
       }
     );
+  }
+
+  deleteArticle(){
+    console.log("deleting article...")
+    this.articleService.deleteArticleById(this.article.id).subscribe(
+      data => {
+        this.article = data;
+      },
+      err => {
+        console.log(err);
+      }
+    );
+    this.router.navigateByUrl("");
   }
 
   goToHome() {
