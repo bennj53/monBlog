@@ -60,7 +60,7 @@ export class ArticleEditorComponent implements OnInit {
     if  (!this.article){
       this.articleForm = this.formBuilder.group(
         {
-          title: ['gggggg', Validators.required],
+          title: ['', Validators.required],
           resume: ['', Validators.required],
           keywords: ['', Validators.required],
           articleContent: ['', Validators.required]
