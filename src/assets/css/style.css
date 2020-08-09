@@ -4,7 +4,7 @@
  * Facebook: https://facebook.com/fh5co
  * Twitter: https://twitter.com/fh5co
  */
- 
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -35,7 +35,8 @@ time, mark, audio, video {
   src: url(../fonts/Roboto-Italic.ttf); }
 body {
   font-family: "Roboto-Regular";
-  font-size: 16px; }
+  font-size: 16px;
+}
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "Montserrat-Bold"; }

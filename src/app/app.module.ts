@@ -27,6 +27,8 @@ import { SyncfusionMarkdownEditorComponent } from './resources/syncfusion-markdo
 import { ToolbarService, LinkService, ImageService, MarkdownEditorService, RichTextEditorAllModule } from '@syncfusion/ej2-angular-richtexteditor';
 import { RichTextEditorModule } from '@syncfusion/ej2-angular-richtexteditor';
 import { MarkdownModule } from 'ngx-markdown';
+import { CarouselComponent } from './resources/affichage/carousel/carousel.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,8 @@ import { MarkdownModule } from 'ngx-markdown';
     ArticleEditorComponent,
     LoginComponent,
     RegisterComponent,
-    SyncfusionMarkdownEditorComponent
+    SyncfusionMarkdownEditorComponent,
+    CarouselComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +55,8 @@ import { MarkdownModule } from 'ngx-markdown';
     FormsModule,
     ReactiveFormsModule,
     RichTextEditorAllModule,
-    MarkdownModule.forRoot()
+    MarkdownModule.forRoot(),
+    BrowserAnimationsModule
   ],
   providers: [ArticleService, TokenStorageServiceService, UserService, LoginService, authInterceptorProviders,
     ToolbarService, LinkService, ImageService, MarkdownEditorService],

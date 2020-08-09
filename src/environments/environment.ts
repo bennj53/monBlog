@@ -4,8 +4,10 @@
 
 export const environment = {
   production: true,
-  apiBaseUrl: "http://localhost:8087/",
-  apiLoginBaseUrl: "http://localhost:8081/"
+  //apiBaseUrl: "http://localhost:8087/",
+  //apiLoginBaseUrl: "http://localhost:8081/"
+  apiBaseUrl: "http://192.168.1.41:8087/",
+  apiLoginBaseUrl: "http://192.168.1.41:8081/"
 };
 
 /*

@@ -1,3 +1,22 @@
 .flou{
-  box-shadow: 3px 3px 13px rgba(85, 85, 85, 0.5);
+  box-shadow: 3px 3px 13px rgba(85,85,85,.5);
+
 }
+
+.card{
+  border-radius: 20px;
+}
+
+.image.is-4by3{
+  img {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+
+  }
+}
+
+.card-footer{
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
