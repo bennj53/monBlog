@@ -1,24 +1,28 @@
 <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <a class="navbar-item" href="https://www.linkedin.com/in/benoitjulliot/">
-            <img
-      src="../../../../assets/images/Logo_GIGI-7.png"
-      width="60"
-      height="28"
-    /><img
+      <img
+        src="../../../../assets/images/Logo_GIGI-7.png"
+        width="60"
+        height="28"
+      /><img
         src="../../../../assets/images/Logo_GIGI-9.png"
         width="30"
         height="28"
       />
-
     </a>
 
     <a
       role="button"
-      class="navbar-burger burger"
+      [ngClass]="{
+        'navbar-burger': true,
+        'burger': true,
+        'is-active': isActive
+      }"
       aria-label="menu"
       aria-expanded="false"
       data-target="navbarBasicExample"
+      (click)="activate()"
     >
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
@@ -26,7 +30,12 @@
     </a>
   </div>
 
-  <div id="navbarBasicExample" class="navbar-menu">
+  <div
+    id="navbarBasicExample"
+    [ngClass]="{
+      'navbar-menu': true,
+      'is-active': isActive
+    }">
     <div class="navbar-start">
       <a class="navbar-item" href=" ">
         Accueil
@@ -37,18 +46,22 @@
       </a>
 
       <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
+        <a class="navbar-link" (click)="plier()">
           Plus
         </a>
 
-        <div class="navbar-dropdown">
+        <div *ngIf="!isPlier" class="navbar-dropdown">
           <a class="navbar-item">
             A propos
           </a>
           <a class="navbar-item">
             Jobs
           </a>
-          <a *ngIf="roles !== null && roles.includes('ADMIN')" class="navbar-item" href="editor">
+          <a
+            *ngIf="roles !== null && roles.includes('ADMIN')"
+            class="navbar-item"
+            href="editor"
+          >
             Editeur
           </a>
           <a class="navbar-item">
@@ -64,7 +77,7 @@
 
     <div class="navbar-end">
       <div class="navbar-item">
-        <div class="buttons" *ngIf="isLogged === false;else deconnexion">
+        <div class="buttons" *ngIf="isLogged === false; else deconnexion">
           <a class="button is-primary" routerLink="register" href="/register">
             <strong>Inscription</strong>
           </a>
@@ -74,12 +87,15 @@
         </div>
         <ng-template #deconnexion>
           <span class="tag is-danger is-large">
-            {{idUser}}
-            <button class="delete" id="deconnectButton" (click)="signOut()"></button>
+            {{ idUser }}
+            <button
+              class="delete"
+              id="deconnectButton"
+              (click)="signOut()"
+            ></button>
           </span>
         </ng-template>
       </div>
     </div>
   </div>
 </nav>
-

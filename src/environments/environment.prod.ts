@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
   //apiBaseUrl: "https://whiterabbits.com/api/monblog/"
-  apiBaseUrl: "http://192.168.1.39:8087/",
-  apiLoginBaseUrl: "http://192.168.1.39:8081/"
+  apiBaseUrl: "http://86.245.164.213:8087/",
+  apiLoginBaseUrl: "http://86.245.164.213:8081/",
 };
