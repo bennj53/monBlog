@@ -5,3 +5,16 @@
 .container-background{
   background-color: white;
 }
+
+markdown {
+  h1 {
+    font-size: 1.2em;
+    font-weight: lighter;
+  }
+
+  p {
+    text-align: justify;
+    text-justify: inter-word;
+  }
+
+}
