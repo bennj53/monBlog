@@ -1,7 +1,7 @@
 <div class="slider">
 	<div class="slide-track">
 		<div *ngFor="let article of articles" class="slide">
-      <a [href]="article.url" target="_blank">
+      <a class="slide-track__item" [href]="article.url" target="_blank">
           <img [src]="article.img" onerror="this.onerror=null; this.src='../../../../assets/images/img-article-card.png'" alt="Placeholder image">
           <p class="titre">{{article.titre}}</p>
       </a>
