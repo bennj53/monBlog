@@ -10,6 +10,12 @@ $animationSpeed: 70s;
 	100% { transform: translateX(calc(-500px * 7))}
 }
 
+// Animation
+@keyframes scroll-left {
+	100% { transform: translateX(0); }
+	0% { transform: translateX(calc(-500px * 7))}
+}
+
 
 // Styling
 .slider {
@@ -21,17 +27,20 @@ $animationSpeed: 70s;
   border-radius: 5px;
   width: 95%;
   z-index: 1;
-  margin: 112px auto 20px auto;
+  margin: 93px auto 15px auto;
+
 
 
   @media only screen and (min-width: 768px) {
     height: 250px;
+    margin: 93px auto 22px auto;
   }
 
   @media only screen and (min-width: 1024px) {
     // height: 250px;
     //border-radius: 20px;
     //box-shadow: 0 0px 12px 3px black;
+    margin: 93px auto 50px auto;
   }
 
 	/*&::before,
@@ -57,6 +66,25 @@ $animationSpeed: 70s;
 
 	.slide-track {
 		animation: scroll $animationSpeed linear infinite;
+		display: flex;
+    width: calc(100% * 50);
+    height: 145px;
+    margin-top: 0px;
+
+    &__item {
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+
+    @media only screen and (min-width: 768px) {
+      height: 235px;
+    }
+
+  }
+
+  .slide-track-left {
+		animation: scroll-left $animationSpeed linear infinite;
 		display: flex;
     width: calc(100% * 50);
     height: 145px;

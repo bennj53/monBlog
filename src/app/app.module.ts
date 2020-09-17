@@ -29,6 +29,7 @@ import { RichTextEditorModule } from '@syncfusion/ej2-angular-richtexteditor';
 import { MarkdownModule } from 'ngx-markdown';
 import { CarouselComponent } from './resources/affichage/carousel/carousel.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ArticleCardDComponent } from './resources/articles/article-card-d/article-card-d.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     LoginComponent,
     RegisterComponent,
     SyncfusionMarkdownEditorComponent,
-    CarouselComponent
+    CarouselComponent,
+    ArticleCardDComponent
   ],
   imports: [
     BrowserModule,

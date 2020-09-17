@@ -15,7 +15,7 @@
 <div class="container is-fluid">
   <div class="columns is-multiline is-mobile" *ngIf="articles">
     <!--*ngFor="let article of articles._embedded.articles-->
-      <app-article-card
+<!--      <app-article-card
         *ngFor="let article of articles"
         [auteur]="article.auteur"
         [titre]="article.titre"
@@ -26,5 +26,17 @@
         [urlArticle]="article.url"
         [contenu]="article.contenu"
       ></app-article-card>
+  -->
+      <app-article-card-d
+        *ngFor="let article of articles"
+        [auteur]="article.auteur"
+        [titre]="article.titre"
+        [date]="1-1-2019"
+        [resume]="article.resume"
+        [article]="article"
+        [imgArticle]="article.img"
+        [urlArticle]="article.url"
+        [contenu]="article.contenu"
+      ></app-article-card-d>
   </div>
 </div>
