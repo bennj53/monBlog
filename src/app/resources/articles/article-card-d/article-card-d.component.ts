@@ -18,10 +18,13 @@ export class ArticleCardDComponent implements OnInit {
   motcles: string[];
   @Input() article;
   @Input() contenu: string;
+  cardIsOpen: boolean;
 
   constructor(private router: Router) { }
 
   ngOnInit(): void {
+    this.cardIsOpen=false;
+    this.resume = "Extrait : " + this.resume;
   }
 
   onGetAutorColor(autor: string) {
@@ -69,7 +72,14 @@ export class ArticleCardDComponent implements OnInit {
       this.router.navigateByUrl("/article/"+btoa(this.host + "articles/"+urlArticle));
     }else{
       console.log("url article externe : " + this.urlArticle);
-      this.router.navigateByUrl(btoa(this.urlArticle));
+      //window.open(this.urlArticle, "_blank");
+      //this.router.navigateByUrl(this.urlArticle);
+      if(this.cardIsOpen){
+        //this.cardIsOpen = false;
+      }else{
+        this.cardIsOpen = true;
+      }
+      console.log("cardIsOpen : " + this.cardIsOpen);
     }
   }
 

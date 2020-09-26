@@ -1,3 +1,4 @@
+
 <div *ngIf="urlArticle === null;else article_externe_lien">
   <div class="book-container" (click)=onGetArticleDetail() rel="noreferrer noopener">
     <div class="book" [dir]="resume">
@@ -17,13 +18,15 @@
   </div>
 </div>
 <ng-template #article_externe_lien>
+
   <a
     class="book-container"
-    [href]="urlArticle"
+    [href]=""
     target="_blank"
     rel="noreferrer noopener"
+    (click)=onGetArticleDetail()
   >
-    <div class="book" [dir]="resume">
+    <div class="book" [attr.data-after-content]='resume' >
       <div>
         <img class="article-card-d-header-img" style="border-radius: 7px 7px 0px 0px;"
           [alt]="titre"
@@ -35,10 +38,10 @@
           <img class="article-card-d-footer-img" [src]='onGetAutorLogo(auteur)' alt="Placeholder image">
         </div>
       </div>
-
     </div>
   </a>
-</ng-template>
-<script>
+  <div *ngIf="cardIsOpen === true" class="article-card-d-button" [ngStyle]="{'background-color':onGetAutorColor(auteur)}">
+    <a href={{urlArticle}} target="_blank">Lire l'article</a>
+  </div>
 
-</script>
+</ng-template>
