@@ -2,9 +2,11 @@
   background-color: #000000;
   padding: 0rem 0rem;
   display: list-item;
+  max-height: 3.25rem;
 
   @media only screen and (min-width: 1024px) {
     display: flex;
+    max-height: 4.25rem;
   }
 }
 
