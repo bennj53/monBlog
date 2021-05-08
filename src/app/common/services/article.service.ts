@@ -48,6 +48,10 @@ export class ArticleService {
       {titre: article.getTitle(), auteur: article.getAuteur(), resume: article.getResume(),
         contenu: article.getArticleContent()}, httpOptions);
   }
+
+  getArticlesCardsVeille(category:string) {
+    return this.http.get(this.host + "articles/category/" + category, httpOptions);
+  }
   /* this.articleCards = [
       {
         auteur: "Bennj5",

@@ -5,6 +5,7 @@ import { ArticleEditorComponent } from "./resources/articles/article-editor/arti
 import { LoginComponent } from "./login/login.component";
 import { RegisterComponent } from './register/register.component';
 import { SyncfusionMarkdownEditorComponent } from './resources/syncfusion-markdown-editor/syncfusion-markdown-editor.component';
+import { VeilleListComponent } from "./resources/veille/veille-list/veille-list.component";
 
 export const appRoutes: Routes = [
   {
@@ -38,5 +39,10 @@ export const appRoutes: Routes = [
   {
     path: "register",
     component: RegisterComponent
+  }
+  ,
+  {
+    path: "veille",
+    component: VeilleListComponent
   }
 ];

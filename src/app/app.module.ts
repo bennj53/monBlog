@@ -30,6 +30,7 @@ import { MarkdownModule } from 'ngx-markdown';
 import { CarouselComponent } from './resources/affichage/carousel/carousel.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ArticleCardDComponent } from './resources/articles/article-card-d/article-card-d.component';
+import { VeilleListComponent } from './resources/veille/veille-list/veille-list.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { ArticleCardDComponent } from './resources/articles/article-card-d/artic
     RegisterComponent,
     SyncfusionMarkdownEditorComponent,
     CarouselComponent,
-    ArticleCardDComponent
+    ArticleCardDComponent,
+    VeilleListComponent
   ],
   imports: [
     BrowserModule,
