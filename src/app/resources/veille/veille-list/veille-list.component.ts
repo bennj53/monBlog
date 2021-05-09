@@ -16,7 +16,7 @@ export class VeilleListComponent implements OnInit {
   }
 
   getListArticles() {
-    this.articleService.getArticlesCardsVeille("developpement").subscribe(
+    this.articleService.getArticlesCardsByCategory("developpement").subscribe(
       data => {
         this.articles = data;
       },

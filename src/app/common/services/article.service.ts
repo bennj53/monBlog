@@ -49,7 +49,7 @@ export class ArticleService {
         contenu: article.getArticleContent()}, httpOptions);
   }
 
-  getArticlesCardsVeille(category:string) {
+  getArticlesCardsByCategory(category:string) {
     return this.http.get(this.host + "articles/category/" + category, httpOptions);
   }
   /* this.articleCards = [

@@ -16,7 +16,7 @@ export class ArticlesListComponent implements OnInit {
   }
 
   getListArticles() {
-    this.articleService.getArticlesCards().subscribe(
+    this.articleService.getArticlesCardsByCategory("general").subscribe(
       data => {
         this.articles = data;
       },

@@ -41,6 +41,10 @@ export class ArticleCardDComponent implements OnInit {
       break;
       case "macg.co" : return "#FF6627";
       break;
+      case "humancoders.com" : return "white";
+      break;
+      case "developpez.com" : return "#355976";
+      break;
       default : return "#00C4A7";//#FFFFFF
       break;
     }
@@ -59,6 +63,10 @@ export class ArticleCardDComponent implements OnInit {
       case "frandroid.com" : return "../../../../assets/images/logoFrandroid.gif";
       break;
       case "macg.co" : return "../../../../assets/images/logoMacGeneration.gif";
+      break;
+      case "humancoders.com" : return "../../../../assets/images/logoHumanCoders.png";
+      break;
+      case "developpez.com" : return "../../../../assets/images/logoDeveloppez.png";
       break;
       default : return "../../../../assets/images/LogoGigi.png";
       break;
