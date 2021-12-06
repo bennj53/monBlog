@@ -6,8 +6,8 @@ export const environment = {
   production: false,
   //apiBaseUrl: "http://localhost:8087/",
   //apiLoginBaseUrl: "http://localhost:8081/",
-  apiBaseUrl: "http://192.168.1.41:8087/",
-  apiLoginBaseUrl: "http://192.168.1.41:8081/",
+  apiBaseUrl: "http://192.168.1.136:8087/",
+  apiLoginBaseUrl: "http://192.168.1.136:8081/",
 
   //apiBaseUrl: "86.245.164.213:8087/",
   //apiLoginBaseUrl: "86.245.164.213:8081/",
