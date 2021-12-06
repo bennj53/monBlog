@@ -28,11 +28,21 @@
   >
     <div class="book" [attr.data-after-content]='resume' >
       <div>
-        <img class="article-card-d-header-img" style="border-radius: 7px 7px 0px 0px;"
+        <div *ngIf="imgArticle === null;else img_article">
+          <img class="article-card-d-header-img" style="border-radius: 7px 7px 0px 0px;"
+          [alt]="titre"
+          [src]='onGetAutorLogo(auteur)'  alt="Placeholder image"
+         />
+        </div>
+        <ng-template #img_article>
+          <img class="article-card-d-header-img" style="border-radius: 7px 7px 0px 0px;"
           [alt]="titre"
           [src]="imgArticle"
           onerror="this.onerror=null; this.src='../../../../assets/images/img-article-card.png'" alt="Placeholder image"
-        />
+          />
+        </ng-template>
+
+
         <p class="article-card-d-body-p" style="max-width: 100%;font-weight: bold;">{{ titre }}</p>
         <div class="article-card-d-footer" [ngStyle]="{'background-color':onGetAutorColor(auteur)}">
           <img class="article-card-d-footer-img" [src]='onGetAutorLogo(auteur)' alt="Placeholder image">
